@@ -74,3 +74,58 @@ def count_positive_numbers(numbers):
 nmbrs = [1, -2, 3, -4, 5]
 positive_count = count_positive_numbers(nmbrs)
 print(positive_count)
+
+
+# Задание 7
+def calculate_days(years, months):
+    days = years * 365 + months * 29
+    return days
+
+
+years = 2
+months = 6
+total_days = calculate_days(years, months)
+print(total_days)
+
+
+# Задание 8
+
+def generate_abbreviations(input_string):
+    if not isinstance(input_string, str):
+        raise ValueError("Вход должен быть строкой")
+
+    words = input_string.split()
+    abbreviations = "".join(word[0].upper() for word in words)
+    return abbreviations
+
+
+input_string = "Названием файла, названием функции или комментарием помечайте номер задачи"
+abbreviations = generate_abbreviations(input_string)
+print("Аббревиатуры:", abbreviations)
+
+
+# Задание 9
+
+def factorial(n):
+    if n < 0:
+        return "Факториал отрицательного числа не определен"
+    if n == 0:
+        return 1
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+
+number = 6
+fact = factorial(number)
+print("Факториал числа", number, "равен", fact)
+
+# Задание 10
+
+lst = [2, 4, 5, 8, 9, 13]
+number = 0
+while number < len(lst):
+    lst[number] *= number
+    number += 1
+    print(lst)
