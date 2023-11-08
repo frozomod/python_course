@@ -46,3 +46,31 @@ def prnt(a):
 prnt(0)
 prnt(-101)
 
+
+# Задание 5
+
+def cnts(a, b):
+    if a in b:
+        print('Да')
+    else:
+        print('Нет')
+
+
+str_1 = 'test'
+str_2 = 'test1'
+cnts(str_1, str_2)
+
+
+# Задание 6
+
+def count_positive_numbers(numbers):
+    count = 0
+    for num in numbers:
+        if num > 0:
+            count += 1
+    return count
+
+
+nmbrs = [1, -2, 3, -4, 5]
+positive_count = count_positive_numbers(nmbrs)
+print(positive_count)
