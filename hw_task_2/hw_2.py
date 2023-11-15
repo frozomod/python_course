@@ -82,7 +82,6 @@ def multiply_numbers(x, y):
     return x * y
 
 
-# Тестовые вызовы
 try:
     result1 = add_numbers(3, 4)
     print(f"Результат сложения: {result1}")
@@ -97,3 +96,34 @@ except TypeError as e:
 
 
 # Задание 7
+def retry_once(func):
+    def wrapper(*args, **kwargs):
+        try:
+            result = func(*args, **kwargs)
+            return result
+        except Exception as t:
+            print(f"Ошибка: {t}. Повторный запуск...")
+            try:
+                return func(*args, **kwargs)
+            except Exception as e_retry:
+                print(f"Ошибка при повторном запуске: {e_retry}")
+
+    return wrapper
+
+
+@retry_once
+def add_numbers(a, b):
+    return a + b
+
+
+@retry_once
+def divide(a, b):
+    return a / b
+
+
+# Тестовые вызовы
+result1 = add_numbers(3, 4)
+print(f"Результат сложения: {result1}")
+
+result2 = divide(10, 0)
+print(f"Результат деления: {result2}")
