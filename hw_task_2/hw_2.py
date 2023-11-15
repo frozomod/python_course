@@ -1,3 +1,6 @@
+import time
+
+
 # Задание 1
 def remove_stop_words(input_words, stop_words):
     words = input_words.split()
@@ -127,3 +130,39 @@ print(f"Результат сложения: {result1}")
 
 result2 = divide(10, 0)
 print(f"Результат деления: {result2}")
+
+# Задание 8
+elements = [(2, 12, "Mg"), (1, 11, "Na"), (1, 3, "Li"), (2, 4, "Be")]
+
+sorted_elements = sorted(elements, key=lambda x: x[1])
+
+print(sorted_elements)
+
+
+# Задание 9
+def timing_decorator(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        execution_time = end_time - start_time
+        print(f"Время выполнения функции: {func.__name__}: {execution_time:.4f} секунд")
+        return result
+
+    return wrapper
+
+
+@timing_decorator
+def slow_function():
+    time.sleep(2)
+    print("Медленная функция выполнена!")
+
+
+@timing_decorator
+def fast_function():
+    print("Быстрая функция выполнена!")
+
+
+# Тестовые вызовы
+slow_function()
+fast_function()
