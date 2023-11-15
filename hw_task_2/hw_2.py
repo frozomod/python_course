@@ -24,7 +24,6 @@ print(denom_list(test_nums, den))
 # Задание 3
 def return_strings(*args):
     promt = ''
-    print(len(args))
     for item in args:
         if isinstance(item, str):
             promt += item
@@ -33,3 +32,68 @@ def return_strings(*args):
 
 
 print(return_strings(3.0, 'test', '1', 'promt', ('list', 'tup')))
+
+
+# Задание 4
+def common_items(list_one, list_two):
+    format_list = list(filter(lambda x: x in list_two, list_one))
+    return format_list
+
+
+list_first = [1, 3, 31, 5, 'test', 'go', 3.0]
+list_second = [40, 3, 5, 'go', 'promt', 3.0]
+print(common_items(list_first, list_second))
+
+
+# Задание 5
+def ladder(k, n):
+    sum = 0
+    if n == 0:
+        return sum + 1
+    elif k < n:
+        for i in range(k + 1, n + 1):
+            sum += ladder(i, n - i)
+        return sum
+    else:
+        return sum
+
+
+print(ladder(0, 7))
+
+
+# Задание 6
+def check_return_type(func):
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        if not isinstance(result, int):
+            raise TypeError(f"Функция {func.__name__} должна выводить int, но вывела {type(result)}.")
+        return result
+
+    return wrapper
+
+
+@check_return_type
+def add_numbers(a, b):
+    return a + b
+
+
+@check_return_type
+def multiply_numbers(x, y):
+    return x * y
+
+
+# Тестовые вызовы
+try:
+    result1 = add_numbers(3, 4)
+    print(f"Результат сложения: {result1}")
+except TypeError as e:
+    print(f"Error: {e}")
+
+try:
+    result2 = multiply_numbers(5, '2')
+    print(f"Результат произведения: {result2}")
+except TypeError as e:
+    print(f"Error: {e}")
+
+
+# Задание 7
