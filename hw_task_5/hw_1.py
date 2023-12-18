@@ -34,7 +34,6 @@ print("\nМатрица записана в файл 'matrix.csv'")
 
 # Задание 4
 
-# Загружаем DataFrame из файла emojis.csv
 df_emojis = pd.read_csv('emojis.csv')
 
 df_sorted = df_emojis.sort_values(by='Rank', ascending=True)
