@@ -33,7 +33,6 @@ class CustomModel:
     def inference(self, input_data):
         return self.model.predict(input_data)
 
-# Пример использования класса
 model_params = {
     'input_dim': 2,
     'hidden_dim1': 12,
@@ -49,7 +48,6 @@ custom_model = CustomModel(**model_params)
 custom_model.prepare_data(data_path)
 custom_model.train()
 
-# Пример инференса
 input_data = np.array([[0.2, 0.8], [0.5, 0.3], [0.7, 0.6]])
 predictions = custom_model.inference(input_data)
 print("Predictions:", predictions)
