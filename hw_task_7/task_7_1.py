@@ -40,7 +40,6 @@ class FaceDetector:
                 # frame = resizing(frame, 600)
 
     def infer(self):
-        # Ваши операции инференса
         for (x, y, w, h) in self.faces:
             print(f"Face detected at coordinates: x={x}, y={y}, w={w}, h={h}")
 
@@ -61,7 +60,7 @@ class FaceDetector:
             ratio = new_width / w
             dimension = (new_width, int(h * ratio))
         self.image = cv.resize(self.image, dimension)
-        # return cv.resize(self.image, dimension)
+      
 
 
 face = FaceDetector('video_1.mp4')
